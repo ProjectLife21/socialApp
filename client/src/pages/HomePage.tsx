@@ -1,14 +1,13 @@
-import { FaSearch, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { HiOutlineBellAlert } from "react-icons/hi2";
-
-// components
-import { Navbar } from "../components";
+import { LeftSidebar, RightSidebar } from "../components";
 
 const HomePage = () => {
   return (
-    <div>
-      <Navbar />
+    <div className="flex min-h-screen">
+      <LeftSidebar />
+      <main className="flex-1 bg-green-400 h-[200vh]">
+        <h1>Main</h1>
+      </main>
+      <RightSidebar />
     </div>
   );
 };

@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { FaSearch, FaUser } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
-import { HiOutlineBellAlert } from "react-icons/hi2";
 import { MdAddAlert } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <div className="navbar justify-center bg-blue-600 text-white">
+    <div className="navbar justify-center sticky top-0 bg-blue-600 text-white z-[99999]">
       <div className="container mx-auto">
         <div className="flex-1 ">
           <Link

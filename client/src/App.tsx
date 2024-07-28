@@ -1,17 +1,35 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// layout
+
 // pages
-import { HomePage, LoginPage, ProfilePage, RegisterPage } from "./pages";
+import {
+  HomePage,
+  LoginPage,
+  ProfilePage,
+  RegisterPage,
+  ErrorPage,
+} from "./pages";
+import { MainLayout } from "./layouts";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: (
+        <MainLayout>
+          <HomePage />
+        </MainLayout>
+      ),
+      errorElement: <ErrorPage />,
     },
     {
-      path: "about",
-      element: <div>About</div>,
+      path: "/profile/:profileId",
+      element: (
+        <MainLayout>
+          <ProfilePage />
+        </MainLayout>
+      ),
     },
   ]);
 
