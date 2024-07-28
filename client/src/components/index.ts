@@ -3,3 +3,4 @@ export { default as LeftSidebar } from "./Navigation/LeftSidebar";
 export { default as RightSidebar } from "./Navigation/RightSidebar";
 export { default as Feed } from "./DataDisplay/Feed";
 export { default as ListOfFeeds } from "./DataDisplay/ListOfFeeds";
+export { default as Share } from "./DataInput/Share";

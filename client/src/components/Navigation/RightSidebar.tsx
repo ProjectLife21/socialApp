@@ -1,6 +1,6 @@
 const RightSidebar = () => {
   return (
-    <aside className="flex-1 ">
+    <aside className="w-[40%] ">
       <div className="sticky top-[4rem]">
         <p className="text-2xl font-bold mb-4">Online Friends</p>
         <ul className="flex flex-col gap-5 ml-5">

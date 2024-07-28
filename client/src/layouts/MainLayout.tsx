@@ -1,5 +1,5 @@
 // components
-import { Navbar } from "../components";
+import { Navbar, LeftSidebar } from "../components";
 
 type TMainLayout = {
   children: React.ReactNode;
@@ -9,8 +9,10 @@ const MainLayout = ({ children }: TMainLayout) => {
   return (
     <>
       <Navbar />
-      {children}
-      <h1>Footer</h1>
+      <main className="flex">
+        <LeftSidebar />
+        {children}
+      </main>
     </>
   );
 };

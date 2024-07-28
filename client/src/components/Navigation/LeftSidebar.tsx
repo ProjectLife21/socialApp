@@ -5,7 +5,7 @@ import { menuLinks } from "../../utils/tempData";
 
 const LeftSidebar = () => {
   return (
-    <aside className="flex-1 ">
+    <aside className="w-[20%] ">
       <div className="sticky top-[5rem] ml-2 mt-5">
         <ul className="flex flex-col gap-5">
           {menuLinks?.map((link) => {
