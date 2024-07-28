@@ -1,1 +1,1 @@
-##MERN Social App##
+##MERN Social App with React + Node##
