@@ -1,18 +1,27 @@
 import express, { Response, Request, Application, NextFunction } from "express";
 import dotenv from "dotenv";
 dotenv.config();
-
 import cors from "cors";
+
+// db
+import { connectDB } from "./db/connectDB";
+
+// routes
+import { authRoute } from "./routes/authRoute";
+import { userRoute } from "./routes/userRoute";
+import { postRoute } from "./routes/postRoute";
 
 const app: Application = express();
 const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI as string;
 
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).json({ msg: "Route test!" });
-});
+// routes
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/post", postRoute);
 
 //404 not found
 app.use((req, res, next) => {
@@ -27,6 +36,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 const startApp = async () => {
   try {
+    await connectDB(MONGO_URI).then(() => {
+      console.log(`Database is connected!`);
+    });
+
     app.listen(PORT, () => {
       console.log(`Server is running on port: ${PORT}`);
     });
