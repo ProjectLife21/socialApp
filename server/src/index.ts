@@ -2,6 +2,8 @@ import express, { Response, Request, Application, NextFunction } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
 
 // db
 import { connectDB } from "./db/connectDB";
@@ -14,9 +16,15 @@ import { postRoute } from "./routes/postRoute";
 const app: Application = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI as string;
+const APP_ENV = process.env.NODE_ENV;
 
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
+
+if (APP_ENV != "production") {
+  app.use(morgan("dev"));
+}
 
 // routes
 app.use("/api/v1/auth", authRoute);
